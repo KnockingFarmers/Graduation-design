@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <h1>毕设项目</h1>
+    <LayoutVue />
   </div>
 </template>
 
 <script>
+import LayoutVue from "./components/layout/Layout.vue";
 export default {
   name: "App",
+  components: { LayoutVue },
 };
 </script>
 
