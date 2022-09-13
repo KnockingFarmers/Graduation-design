@@ -1,17 +1,14 @@
 <template>
   <div class="info-box">
     <div class="box-img">
-      <img src="@/assets/school-logo.jpeg" alt="" />
+      <img :src="teacherIntroduction.photo" alt="" />
     </div>
     <div class="info-name">
-      <p>姓名</p>
+      <p>{{ teacherIntroduction.name }}</p>
     </div>
     <div class="info-text">
       <p>
-        占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文本
-        占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文本
-        占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文本 占位文本
-        占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文本占位文
+        {{ teacherIntroduction.introduction }}
       </p>
     </div>
   </div>
@@ -39,7 +36,6 @@ export default {
 
 <style scoped>
 .info-box {
-  /* display: flex; */
   padding: 5px;
   width: 150px;
   height: 280px;

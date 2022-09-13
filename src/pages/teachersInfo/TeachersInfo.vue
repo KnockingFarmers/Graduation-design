@@ -1,36 +1,30 @@
 <template>
   <div class="teachersInfo">
     <InfoBoxVue
+      v-for="(item, index) in teachers"
+      :key="index"
       :clicked="readyClicked"
-      :teacherIntroduction="teachers"
-      @mouseenter="readyClick"
-      @mouseout="noClick"
+      :teacherIntroduction="item"
     />
-    <InfoBoxVue :clicked="readyClicked" :teacherIntroduction="teachers" />
   </div>
 </template>
 
 <script>
 import InfoBoxVue from "@/components/infoBox/InfoBox.vue";
+import { teacherIntroduction } from "./data.js";
 export default {
   name: "TeachersInfo",
   components: { InfoBoxVue },
   data() {
     return {
-      teachers: {},
+      teachers: teacherIntroduction,
       readyClicked: false,
     };
   },
 
-  methods: {
-    readyClick() {
-      console.log(this.readyClicked);
-      this.readyClicked = true;
-    },
-    noClick() {
-      console.log(this.readyClicked);
-      this.readyClicked = false;
-    },
+  methods: {},
+  mounted() {
+    console.log(this.teachers);
   },
 };
 </script>
@@ -38,5 +32,10 @@ export default {
 <style scoped>
 .teachersInfo {
   display: flex;
+  padding: 10px;
+  width: 100%;
+  overflow: hidden;
+  justify-content: left;
+  flex-flow: wrap;
 }
 </style>
