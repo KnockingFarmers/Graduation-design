@@ -3,7 +3,6 @@
     <InfoBoxVue
       v-for="(item, index) in teachers"
       :key="index"
-      :clicked="readyClicked"
       :teacherIntroduction="item"
     />
   </div>
@@ -23,9 +22,6 @@ export default {
   },
 
   methods: {},
-  mounted() {
-    console.log(this.teachers);
-  },
 };
 </script>
 

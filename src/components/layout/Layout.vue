@@ -1,45 +1,29 @@
 <template>
   <div class="layou">
     <!-- 导航 -->
-    <el-container style="height: 580px; border: 1px solid #eee">
-      <el-aside width="201px" style="background-color: rgb(238, 241, 246)">
+    <el-container style="border: 1px solid #eee">
+      <el-header>
+        <!-- @select="handleSelect" -->
         <el-menu
-          :default-openeds="['1', '3']"
-          default-active="1"
-          class="el-menu-vertical-demo"
+          :default-active="activeIndex2"
+          class="el-menu-demo"
+          mode="horizontal"
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
+          :router="true"
         >
-          <el-menu-item index="1">
-            <template slot="title">
-              <i class="el-icon-menu"></i>
-              老师资料
-            </template>
-          </el-menu-item>
-          <el-submenu index="2">
-            <template slot="title"><i class="el-icon-menu"></i>比赛成果</template>
-            <el-menu-item-group>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="3">
-            <template slot="title"><i class="el-icon-menu"></i>获奖证书</template>
-            <el-menu-item-group>
-              <el-menu-item index="2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2">选项2</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-submenu index="4">
-            <template slot="title"><i class="el-icon-menu"></i>培训资料</template>
-            <el-menu-item-group>
-              <el-menu-item index="3-1">选项1</el-menu-item>
-              <el-menu-item index="3-2">选项2</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
+          <el-menu-item index="1">老师信息</el-menu-item>
+          <el-menu-item index="2" :route="routeGo.about">关于我们</el-menu-item>
+
+          <el-menu-item index="3">实训资料</el-menu-item>
+          <el-menu-item index="4"
+            ><a href="https://www.ele.me" target="_blank"
+              >电子信息学院官网</a
+            ></el-menu-item
+          >
         </el-menu>
-      </el-aside>
+      </el-header>
 
       <!-- 主体部分 -->
       <el-main>
@@ -53,7 +37,15 @@
 export default {
   name: "Layout",
   data() {
-    return {};
+    return {
+      activeIndex: "1",
+      activeIndex2: "1",
+      routeGo: {
+        about: {
+          name: "about",
+        },
+      },
+    };
   },
   methods: {},
 };
@@ -66,5 +58,8 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+}
+.el-main {
+  overflow: hidden;
 }
 </style>

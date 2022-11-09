@@ -8,8 +8,21 @@ Vue.use(VueRouter);
 export default new VueRouter({
     // mode: 'history',
     routes: [{
-        name: "home",
-        path: "/",
-        component: () => import("@/pages/teachersInfo/TeachersInfo.vue"),
-    }, ]
+            name: "home",
+            path: "/",
+            component: () => import("@/pages/teachersInfo/TeachersInfo.vue"),
+            children: [],
+        },
+        {
+            name: "teachersDetail",
+            path: "/teachersDetail",
+            component: () => import("@/pages/teachersDetail/TeachersDetail.vue")
+        },
+        {
+            name: "about",
+            path: "/about",
+            component: () => import("@/pages/about/About.vue")
+        },
+
+    ]
 })
